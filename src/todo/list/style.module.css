@@ -22,6 +22,10 @@
   background-color: bisque;
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
 .button {
   width: 50px;
   margin-left: 10px;
