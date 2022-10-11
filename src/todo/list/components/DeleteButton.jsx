@@ -11,7 +11,7 @@ export default function DeleteButton(props) {
   };
 
   return (
-    <button className={styles.deleteButton} onClick={onClick}>
+    <button className={styles.button} onClick={onClick}>
       삭제
     </button>
   );
