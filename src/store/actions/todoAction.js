@@ -11,3 +11,10 @@ export const deleteTodoAction = (id) => {
     payload: id,
   };
 };
+
+export const completeTodoAction = (id) => {
+  return {
+    type: "todo/complete",
+    payload: id,
+  };
+};
