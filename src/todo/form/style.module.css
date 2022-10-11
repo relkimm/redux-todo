@@ -1,0 +1,18 @@
+.todoForm {
+  height: 60px;
+  margin: 16px;
+}
+
+.todoInput {
+  box-sizing: border-box;
+  width: 445px;
+  height: 34px;
+  padding: 10px;
+  margin-right: 24px;
+  font-size: 16px;
+}
+
+.addButton {
+  width: 120px;
+  height: 34px;
+}

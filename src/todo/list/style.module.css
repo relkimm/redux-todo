@@ -1,0 +1,27 @@
+.todoList {
+  list-style: none;
+  margin: 16px;
+  padding: 0;
+}
+
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 590px;
+  height: 34px;
+  margin-bottom: 16px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.todoText {
+  font-size: 16px;
+  background-color: bisque;
+}
+
+.deleteButton {
+  width: 50px;
+}
