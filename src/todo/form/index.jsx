@@ -10,7 +10,9 @@ export default function TodoForm() {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    dispatch(addTodoAction("할 일은 오늘 끝내는게 좋습니다!"));
+    const text = event.target["todo"].value;
+    dispatch(addTodoAction(text));
+    event.target["todo"].value = "";
   };
 
   return (
