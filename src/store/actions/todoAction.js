@@ -18,3 +18,10 @@ export const completeTodoAction = (id) => {
     payload: id,
   };
 };
+
+export const cancelTodoAction = (id) => {
+  return {
+    type: "todo/cancel",
+    payload: id,
+  };
+};

@@ -25,6 +25,14 @@ export const todoReducer = (state = [], action) => {
         return item;
       });
     }
+    case "todo/cancel": {
+      return state.map((item) => {
+        if (item.id === action.payload) {
+          item.completed = false;
+        }
+        return item;
+      });
+    }
     default:
       return state;
   }
