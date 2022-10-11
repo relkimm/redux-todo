@@ -6,7 +6,7 @@ export const useSelector = (selector) => {
 
   const selectedState = selector(store.getState());
 
-  const [state, setState] = useState(selectedState);
+  const [state, setState] = useState(selectedState || []);
 
   useEffect(() => {
     const unsubscirbe = store.subscribe(() => {

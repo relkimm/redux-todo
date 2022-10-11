@@ -1,7 +1,7 @@
-export const addTodoAction = (todo) => {
+export const addTodoAction = (text) => {
   return {
     type: "todo/add",
-    payload: todo,
+    payload: text,
   };
 };
 
