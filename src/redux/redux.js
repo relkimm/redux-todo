@@ -28,3 +28,14 @@ export function createStore(reducer) {
     dispatch,
   };
 }
+
+export function combineReducers(reducers) {
+  const reducerKeys = Object.keys(reducers);
+
+  return function combination(state = {}, action) {
+    return reducerKeys.reduce((nextState, key) => {
+      nextState[key] = reducers[key](state[key], action);
+      return nextState;
+    }, {});
+  };
+}

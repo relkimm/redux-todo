@@ -4,7 +4,8 @@ import TodoItem from "./components/TodoItem";
 import styles from "./style.module.css";
 
 export default function TodoList() {
-  const todoList = useSelector((state) => state);
+  const selector = (state) => state.todo || [];
+  const todoList = useSelector(selector);
 
   return (
     <ul className={styles.todoList}>
