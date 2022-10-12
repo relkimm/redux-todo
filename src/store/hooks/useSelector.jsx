@@ -8,7 +8,7 @@ export const useSelector = (selector) => {
 
   useEffect(() => {
     const unsubscirbe = store.subscribe(() => {
-      const selectedState = selector(store.getState());
+      const selectedState = selector(store.getState() || {});
       setState(selectedState);
     });
 
