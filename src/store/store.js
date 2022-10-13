@@ -1,3 +1,4 @@
+import { todoStorage } from "../infra/storage/todoStorage";
 import { combineReducers, createStore } from "../redux/redux";
 import { todoReducer } from "./reducers/todoReducer";
 
@@ -6,7 +7,7 @@ const reducer = combineReducers({
 });
 
 const preloadedState = {
-  todo: localStorage.getItem("todo"),
+  todo: todoStorage.get(),
 };
 
 export const store = createStore(reducer, preloadedState);

@@ -1,3 +1,5 @@
+import { todoStorage } from "../../infra/storage/todoStorage";
+
 let id = 0;
 
 export const IdGenerator = () => {
@@ -12,15 +14,18 @@ export const todoReducer = (state = [], action) => {
         text: action.payload,
         completed: false,
       };
+      todoStorage.add(newTodo);
       return state.concat(newTodo);
     }
     case "todo/delete": {
+      todoStorage.remove(action.payload);
       return state.filter((state) => state.id !== action.payload);
     }
     case "todo/complete": {
       return state.map((item) => {
         if (item.id === action.payload) {
           item.completed = true;
+          todoStorage.update(item);
         }
         return item;
       });
@@ -29,6 +34,7 @@ export const todoReducer = (state = [], action) => {
       return state.map((item) => {
         if (item.id === action.payload) {
           item.completed = false;
+          todoStorage.update(item);
         }
         return item;
       });
