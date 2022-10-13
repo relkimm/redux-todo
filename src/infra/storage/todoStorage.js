@@ -1,9 +1,9 @@
 function TodoStorage() {
   const todoString = localStorage.getItem("todo");
-  const todos = todoString !== null ? JSON.parse(todoString) : [];
+  let todos = todoString !== null ? JSON.parse(todoString) : [];
 
   function add(newTodo) {
-    todos.push(newTodo);
+    todos = todos.concat(newTodo);
     localStorage.setItem("todo", JSON.stringify(todos));
   }
 
@@ -12,23 +12,24 @@ function TodoStorage() {
   }
 
   function update(updateTodo) {
-    const next = todos.map((todo) => {
+    todos = todos.map((todo) => {
       if (todo.id === updateTodo.id) {
         return updateTodo;
       }
       return todo;
     });
+    localStorage.setItem("todo", JSON.stringify(todos));
   }
 
   function remove(id) {
-    const next = todos.filter((todo) => todo.id !== id);
-    todos = next;
+    todos = todos.filter((todo) => todo.id !== id);
     localStorage.setItem("todo", JSON.stringify(todos));
   }
 
   return {
     add,
     get,
+    update,
     remove,
   };
 }
