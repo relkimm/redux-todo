@@ -1,7 +1,7 @@
 import { ActionTypes } from "./utils";
 
-export function createStore(reducer) {
-  let state = undefined;
+export function createStore(reducer, preloadedState) {
+  let state = preloadedState;
   const listeners = new Set();
 
   function getState() {

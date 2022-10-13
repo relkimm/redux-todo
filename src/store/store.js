@@ -5,4 +5,8 @@ const reducer = combineReducers({
   todo: todoReducer,
 });
 
-export const store = createStore(reducer);
+const preloadedState = {
+  todo: localStorage.getItem("todo"),
+};
+
+export const store = createStore(reducer, preloadedState);
