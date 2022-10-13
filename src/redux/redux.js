@@ -1,3 +1,5 @@
+import { ActionTypes } from "./utils";
+
 export function createStore(reducer) {
   let state = undefined;
   const listeners = new Set();
@@ -21,6 +23,8 @@ export function createStore(reducer) {
     listeners.forEach((listener) => listener());
     return action;
   }
+
+  dispatch({ type: ActionTypes.INIT });
 
   return {
     getState,
