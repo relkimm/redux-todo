@@ -11,8 +11,18 @@ function TodoStorage() {
     return todos;
   }
 
+  function update(updateTodo) {
+    const next = todos.map((todo) => {
+      if (todo.id === updateTodo.id) {
+        return updateTodo;
+      }
+      return todo;
+    });
+  }
+
   function remove(id) {
-    todos.splice(todos.indexOf(id), 1);
+    const next = todos.filter((todo) => todo.id !== id);
+    todos = next;
     localStorage.setItem("todo", JSON.stringify(todos));
   }
 
